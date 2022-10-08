@@ -1,0 +1,108 @@
+<template>
+  <div class="popup">
+    <div class="popup__title"></div>
+    <div class="popup__content">
+      <div class="popup__block">
+        <span class="popup__subtitle">Тип: </span>{{ data.type }}
+      </div>
+      <div class="popup__block">
+        <span class="popup__subtitle">Цена: </span
+        >{{ data.cost.toLocaleString("ru-RU") }}
+      </div>
+      <div class="popup__block">
+        <span class="popup__subtitle">Этаж: </span> {{ data.floor }}
+      </div>
+      <div class="popup__block">
+        <span class="popup__subtitle">Номер квартиры: </span> {{ data.number }}
+      </div>
+      <div class="popup__block">
+        <span class="popup__subtitle">Статус: </span> {{ data.status }}
+      </div>
+      <div class="popup__block">
+        <span class="popup__subtitle">Планировка: </span> {{ data.plan_type }}
+      </div>
+      <div class="popup__block">
+        <span class="popup__subtitle">Площадь: </span> {{ data.square }}
+      </div>
+
+      <div class="popup__block">
+        <span class="popup__subtitle">Cубсидированная : </span>
+        <span v-if="data.subsidy">Да</span>
+        <span v-else>Нет</span>
+      </div>
+      <div class="popup__block">
+        <span class="popup__subtitle">Маржинальная : </span>
+        <span v-if="data.marginal">Да</span>
+        <span v-else>Нет</span>
+      </div>
+      <div class="popup__block">
+        <span class="popup__subtitle">С ремонтом: </span>
+        <span v-if="data.renovation">Да</span>
+        <span v-else>Нет</span>
+      </div>
+      <div class="popup__block">
+        <span class="popup__subtitle">С рассрочкой: </span>
+        <span v-if="data.installment">Да</span>
+        <span v-else>Нет</span>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      scrollWidth: false,
+      scrollHeight: false,
+    };
+  },
+  props: {
+    data: {
+      type: Object,
+    },
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+.popup {
+  padding: 10px 8px;
+  position: absolute;
+  min-width: 200px;
+  top: 0;
+  left: 38px;
+  background-color: var(--neutral-100);
+  z-index: 2;
+  box-shadow: 2px 1px 10px black;
+  color: var(--dark-200);
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 9px;
+    transform: translateX(-100%);
+    display: block;
+    z-index: 30;
+    border: 8px solid transparent;
+    border-right: 8px solid var(--neutral-100);
+  }
+
+  &__content {
+    text-align: left;
+  }
+
+  &__block {
+    margin-top: 5px;
+    &:first-child {
+      margin: 0;
+    }
+  }
+
+  &__subtitle {
+    font-size: 16px;
+    font-weight: 400;
+  }
+}
+</style>

@@ -1,0 +1,28 @@
+:root {
+    --light: #fff;
+    --light-100:#d3d3d3;
+    --neutral-100: #f4f4f4;
+    --yelow: #ffc941;
+    --yelow-200: #ffb500;
+    --red: #cf0000;
+    --green: #81a556;
+    --dark-100:#858585;
+    --dark-150:#afafaf;
+    --dark-200: #292929;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    position: relative;
+    margin: 0 auto;
+    max-width: 1440px;
+}
