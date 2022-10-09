@@ -59,6 +59,7 @@ export default {
 <style lang="scss" scoped>
 .wrapper {
   position: relative;
+  margin-right: 5px;
 }
 .cell {
   position: relative;
@@ -69,7 +70,6 @@ export default {
   justify-content: center;
   align-items: center;
   color: var(--light);
-  margin-right: 5px;
   cursor: pointer;
   transition: all 0.3s;
   border: none;

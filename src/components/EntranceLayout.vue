@@ -1,13 +1,16 @@
 <template>
   <div class="entrance">
-    <div
-      class="entrance__floors"
-      v-for="(floor, index) in entrance.floors"
-      :key="index"
-    >
-      <div class="entrance__floor">{{ floor.floor }}</div>
-      <Cell v-for="(flat, index) in floor.flats" :key="index" :id="flat.id" />
+    <div class="entrance__content">
+      <div
+        class="entrance__floors"
+        v-for="(floor, index) in entrance.floors"
+        :key="index"
+      >
+        <div class="entrance__floor">{{ floor.floor }}</div>
+        <Cell v-for="(flat, index) in floor.flats" :key="index" :id="flat.id" />
+      </div>
     </div>
+
     <div class="entrance__title">
       {{ entrance.title }}
     </div>
@@ -33,10 +36,10 @@ export default {
 <style lang="scss" scoped>
 .entrance {
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
   justify-content: flex-end;
-  flex-direction: column;
-
+  
   &__floor {
     width: 15px;
     margin-right: 20px;
@@ -48,7 +51,11 @@ export default {
       align-items: center;
       margin-bottom: 5px;
 
-      .cell {
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .wrapper {
         &:last-child {
           margin: 0;
         }

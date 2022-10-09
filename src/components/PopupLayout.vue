@@ -94,7 +94,6 @@ export default {
   padding: 10px 8px;
   position: absolute;
   min-width: 250px;
-  left: 38px;
   background-color: var(--neutral-100);
   z-index: 2;
   box-shadow: 2px 1px 10px black;
@@ -123,22 +122,22 @@ export default {
 
   &__subtitle {
     font-size: 16px;
-    font-weight: 400;
+    font-weight: bold;
   }
 
   &_right {
+    left: 38px;
     &::after {
       left: 0;
     }
   }
 
   &_left {
-    left: 0;
-    transform: translateX(calc(-100% - 8px));
+    right: 43px;
 
     &::after {
-      transform: translateX(100%) rotate(180deg);
-      right: 0;
+      right: -16px;
+      transform: rotate(180deg);
     }
   }
 

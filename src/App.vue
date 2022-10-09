@@ -4,6 +4,7 @@
       <div class="container">
         <div class="head__wrapper">
           <select
+            class="select"
             name="house"
             id="house"
             @change="selectHouse($event.target.value)"
@@ -129,7 +130,7 @@ export default {
     justify-content: space-between;
   }
 
-  select {
+  .select {
     background: var(--bg);
     box-shadow: 0px 7px 64px rgba(0, 0, 0, 0.07);
     border-radius: 6px;
