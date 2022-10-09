@@ -1,5 +1,13 @@
 <template>
-  <div class="popup" :class="{ popup_left: scrollWidth, popup_right: !scrollWidth }">
+  <div
+    class="popup"
+    :class="{
+      popup_left: scrollWidth,
+      popup_right: !scrollWidth,
+      popup_bottom: scrollHeight,
+      popup_top: !scrollHeight,
+    }"
+  >
     <div class="popup__title"></div>
     <div class="popup__content">
       <div class="popup__block">
@@ -63,12 +71,18 @@ export default {
     },
   },
   mounted() {
-    if (
+    this.scrollWidth =
       document.documentElement.offsetWidth <
       document.documentElement.scrollWidth
-    ) {
-      this.scrollWidth = true;
-    }
+        ? true
+        : false;
+
+    this.scrollHeight =
+      document.documentElement.offsetHeight <
+        document.documentElement.scrollHeight &&
+      document.documentElement.scrollHeight > window.innerHeight
+        ? true
+        : false;
   },
 };
 </script>
@@ -78,7 +92,6 @@ export default {
   padding: 10px 8px;
   position: absolute;
   min-width: 200px;
-  top: 0;
   left: 38px;
   background-color: var(--neutral-100);
   z-index: 2;
@@ -88,7 +101,6 @@ export default {
   &::after {
     content: "";
     position: absolute;
-    top: 9px;
     transform: translateX(-100%);
     display: block;
     z-index: 30;
@@ -125,6 +137,22 @@ export default {
     &::after {
       transform: translateX(100%) rotate(180deg);
       right: 0;
+    }
+  }
+
+  &_top {
+    top: 0;
+
+    &:after {
+      top: 9px;
+    }
+  }
+
+  &_bottom {
+    bottom: 0;
+
+    &:after {
+      bottom: 9px;
     }
   }
 }
