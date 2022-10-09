@@ -27,7 +27,9 @@
         <span class="popup__subtitle">Статус: </span> {{ data.status }}
       </div>
       <div class="popup__block">
-        <span class="popup__subtitle">Планировка: </span> {{ data.plan_type }}
+        <span class="popup__subtitle">Планировка: </span>
+        <span v-if="data.plan_type">{{ data.plan_type }}</span>
+        <span v-else>&#8212;</span>
       </div>
       <div class="popup__block">
         <span class="popup__subtitle">Площадь: </span> {{ data.square }}
@@ -91,7 +93,7 @@ export default {
 .popup {
   padding: 10px 8px;
   position: absolute;
-  min-width: 200px;
+  min-width: 250px;
   left: 38px;
   background-color: var(--neutral-100);
   z-index: 2;
