@@ -24,7 +24,7 @@ export default new Vuex.Store({
     },
     hiddenPopup(state) {
       state.curFloor = ''
-    }
+    },
   },
 
   actions: {

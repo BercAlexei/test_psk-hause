@@ -130,19 +130,20 @@ export default {
   }
 
   select {
-    background: #ffffff;
+    background: var(--bg);
     box-shadow: 0px 7px 64px rgba(0, 0, 0, 0.07);
     border-radius: 6px;
     padding: 6px 12px;
     font-size: 15px;
     line-height: 20px;
+    cursor: pointer;
   }
 }
 
 .legend {
   position: relative;
-  width: 30px;
-  height: 30px;
+  width: 15px;
+  height: 15px;
   background-color: var(--dark-100);
 
   &_sales {
@@ -186,8 +187,8 @@ export default {
     display: flex;
 
     &__title {
-      line-height: 30px;
-      font-size: 24px;
+      line-height: 15px;
+      font-size: 16px;
       font-weight: 500;
       margin-right: 15px;
     }
@@ -195,9 +196,9 @@ export default {
     &__block {
       display: flex;
       text-align: center;
-      line-height: 30px;
+      line-height: 15px;
       color: var(--dark-200);
-      font-size: 18px;
+      font-size: 14px;
       margin-right: 10px;
 
       &:last-child {

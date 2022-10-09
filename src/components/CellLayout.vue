@@ -1,23 +1,26 @@
 <template>
-  <button
-    class="cell"
-    @click="showPopup(id)"
-    :class="{
-      cell_sales: getDataFlat.status === 'Выданы ключи',
-      cell_decor: getDataFlat.status === 'Оформление',
-      cell_booking: getDataFlat.status === 'Бронь',
-      cell_treaty: getDataFlat.status === 'Договор',
-      'cell_non-residential': getDataFlat.type === 'Нежилые помещения',
-      cell_additionally:
-        getDataFlat.renovation ||
-        getDataFlat.marginal ||
-        getDataFlat.installment ||
-        getDataFlat.subsidy,
-    }"
-  >
-    {{ getDataFlat.plan_type }}
-    <Popup v-if="curFloor === id" :data="getDataFlat"/>
-  </button>
+  <div class="wrapper">
+    <div
+      class="cell"
+      @click="showPopup(id)"
+      :class="{
+        cell_sales: getDataFlat.status === 'Выданы ключи',
+        cell_decor: getDataFlat.status === 'Оформление',
+        cell_booking: getDataFlat.status === 'Бронь',
+        cell_treaty: getDataFlat.status === 'Договор',
+        'cell_non-residential': getDataFlat.type === 'Нежилые помещения',
+        cell_additionally:
+          getDataFlat.renovation ||
+          getDataFlat.marginal ||
+          getDataFlat.installment ||
+          getDataFlat.subsidy,
+      }"
+    >
+      {{ getDataFlat.plan_type }}
+    </div>
+
+    <Popup v-if="curFloor === id" :data="getDataFlat" />
+  </div>
 </template>
 <script>
 import { mapState, mapMutations } from "vuex";
@@ -48,12 +51,15 @@ export default {
   },
 
   methods: {
-    ...mapMutations(["showPopup"])
+    ...mapMutations(["showPopup"]),
   },
 };
 </script>
 
 <style lang="scss" scoped>
+.wrapper {
+  position: relative;
+}
 .cell {
   position: relative;
   padding: 0;

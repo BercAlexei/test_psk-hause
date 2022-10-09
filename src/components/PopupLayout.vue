@@ -1,5 +1,5 @@
 <template>
-  <div class="popup">
+  <div class="popup" :class="{ popup_left: scrollWidth, popup_right: !scrollWidth }">
     <div class="popup__title"></div>
     <div class="popup__content">
       <div class="popup__block">
@@ -62,6 +62,14 @@ export default {
       type: Object,
     },
   },
+  mounted() {
+    if (
+      document.documentElement.offsetWidth <
+      document.documentElement.scrollWidth
+    ) {
+      this.scrollWidth = true;
+    }
+  },
 };
 </script>
 
@@ -80,7 +88,6 @@ export default {
   &::after {
     content: "";
     position: absolute;
-    left: 0;
     top: 9px;
     transform: translateX(-100%);
     display: block;
@@ -103,6 +110,22 @@ export default {
   &__subtitle {
     font-size: 16px;
     font-weight: 400;
+  }
+
+  &_right {
+    &::after {
+      left: 0;
+    }
+  }
+
+  &_left {
+    left: 0;
+    transform: translateX(calc(-100% - 8px));
+
+    &::after {
+      transform: translateX(100%) rotate(180deg);
+      right: 0;
+    }
   }
 }
 </style>

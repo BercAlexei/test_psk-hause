@@ -41,7 +41,7 @@ export default {
     width: 15px;
     margin-right: 20px;
     font-size: 14px;
-    color: var(--light-100);
+    color: var(--dark-100);
 
     &s {
       display: flex;
